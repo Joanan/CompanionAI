@@ -47,8 +47,8 @@ if "messages" not in st.session_state:
         st.session_state.retriever = vectorstore.as_retriever()
 
         # Set up memory
-        if "memory" not in st.session_state:
-            st.session_state.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+        #if "memory" not in st.session_state:
+        st.session_state.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
         # Define Chat Prompt for Conversational Flow
         prompt_template = ChatPromptTemplate.from_messages(
