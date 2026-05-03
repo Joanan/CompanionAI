@@ -27,8 +27,8 @@ st.write(
     "Welcome! This AI assistant is here to provide empathetic and thoughtful counseling, adhering to the NICE guidelines."
 )
 
-OPENAI_API_KEY = "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"
-
+#OPENAI_API_KEY = "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"
+api_key=st.secrets["OPENAI_API_KEY"]
 if "messages" not in st.session_state:
         #LLM Data processing, prompt set up and a set up of the LLM
         loader = PyPDFLoader("NICE.pdf")
@@ -40,7 +40,7 @@ if "messages" not in st.session_state:
 
         # Create vector store (FAISS) from the document
         vectorstore = FAISS.from_documents(
-            documents, OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+            documents, OpenAIEmbeddings(api_key=api_key)
         )
 
         # Set up the retriever
@@ -69,7 +69,7 @@ if "messages" not in st.session_state:
             ]
         )
             
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=api_key)
 
         st.session_state.conversation_chain = LLMChain(
             llm=llm,
