@@ -68,7 +68,7 @@ if "messages" not in st.session_state:
             ]
         )
             
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=api_key)
+        llm = ChatOpenAI(model_name="gpt-5.5", openai_api_key=api_key)
 
         st.session_state.conversation_chain = LLMChain(
             llm=llm,
