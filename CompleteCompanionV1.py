@@ -90,7 +90,7 @@ Response style:
 - Ask only one or two questions at a time.
 - Do not repeat previous steps already covered in chat_history.
 - Do not reveal chain-of-thought. Provide brief reasons and structured next steps instead.
-"""            ),
+"""             ),
                 MessagesPlaceholder(variable_name="chat_history"),
                 HumanMessagePromptTemplate.from_template("{full_input}")
             ]
