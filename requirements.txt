@@ -13,7 +13,7 @@ langchain>0.1.14
 openai>1.14.3
 
 # Vector DB / embeddings
-faiss-cpu==1.7.4
+faiss-cpu>1.7.4
 
 # PDF handling
 pypdf==4.2.0
