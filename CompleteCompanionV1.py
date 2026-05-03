@@ -27,7 +27,7 @@ st.write(
     "Welcome! This AI assistant is here to provide empathetic and thoughtful counseling, adhering to the NICE guidelines."
 )
 
-OPENAI_API_KEY = "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#
+OPENAI_API_KEY = "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"
 
 if "messages" not in st.session_state:
         #LLM Data processing, prompt set up and a set up of the LLM
