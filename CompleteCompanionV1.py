@@ -14,8 +14,8 @@ from langchain.prompts import (
     HumanMessagePromptTemplate,
 )
 from langchain.chains import LLMChain
-bow_vectorizer_lem = joblib.load('/Users/apple/downloads/Placement/bow_vectorizer_lem.pkl')
-xgb_bow_lem = joblib.load('/Users/apple/downloads/Placement/depression_detection_model.pkl')
+bow_vectorizer_lem = joblib.load('bow_vectorizer_lem.pkl')
+xgb_bow_lem = joblib.load('depression_detection_model.pkl')
 #Run Streamlit on another port
 #/Users/apple/downloads/Placement/Companion_MLChat_Stream.py --server.port 8502
 
@@ -31,7 +31,7 @@ OPENAI_API_KEY = "sk-proj-JYlzxPh3tDfwCyC8r1KfAnxe-9ZiiTXaRDjIQ1Jo5c75BipURJri8t
 
 if "messages" not in st.session_state:
         #LLM Data processing, prompt set up and a set up of the LLM
-        loader = PyPDFLoader("/Users/apple/downloads/Placement/NICE.pdf")
+        loader = PyPDFLoader("NICE.pdf")
         raw_documents = loader.load()
 
         # Split the PDF into smaller chunks
