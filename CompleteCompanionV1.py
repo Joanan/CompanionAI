@@ -26,6 +26,7 @@ st.write(
     "Welcome! This AI assistant is here to provide empathetic and thoughtful counseling, adhering to the NICE guidelines."
 )
 
+OPENAI_API_KEY = "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"
 
 
 if "messages" not in st.session_state:
@@ -39,7 +40,7 @@ if "messages" not in st.session_state:
 
         # Create vector store (FAISS) from the document
         vectorstore = FAISS.from_documents(
-            documents, OpenAIEmbeddings(api_key=api_key)
+            documents, OpenAIEmbeddings(api_key=OPENAI_API_KEY)
         )
 
         # Set up the retriever
@@ -68,7 +69,7 @@ if "messages" not in st.session_state:
             ]
         )
             
-        llm = ChatOpenAI(model_name="gpt-5.5", openai_api_key=api_key)
+        llm = ChatOpenAI(model_name="gpt-5.5", openai_api_key=OPENAI_API_KEY)
 
         st.session_state.conversation_chain = LLMChain(
             llm=llm,
