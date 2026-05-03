@@ -18,7 +18,7 @@ bow_vectorizer_lem = joblib.load('bow_vectorizer_lem.pkl')
 xgb_bow_lem = joblib.load('depression_detection_model.pkl')
 #Run Streamlit on another port
 #/Users/apple/downloads/Placement/Companion_MLChat_Stream.py --server.port 8502
-
+api_keys=st.secrets["OPENAI_API_KEY"]
 # Streamlit Page Configuration
 st.set_page_config(page_title="NICE Counseling Assistant", page_icon="🤖")
 st.title("🤖 NICE Counseling Assistant")
@@ -39,7 +39,7 @@ if "messages" not in st.session_state:
 
         # Create vector store (FAISS) from the document
         vectorstore = FAISS.from_documents(
-            documents, OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+            documents, OpenAIEmbeddings(api_key=api_keys)
         )
 
         # Set up the retriever
@@ -68,7 +68,7 @@ if "messages" not in st.session_state:
             ]
         )
             
-        llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=OPENAI_API_KEY)
+        llm = ChatOpenAI(model_name="gpt-3.5-turbo", openai_api_key=api_keys)
 
         st.session_state.conversation_chain = LLMChain(
             llm=llm,
